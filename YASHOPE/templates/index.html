@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/css/style.css">
+  <title>YaShope</title>
+</head>
+
+<body>
+    {% include "header.html" %}
+  <div class="wrapper">
+
+    <section>
+      <div class="list">
+        {% for item in data %}
+        <div class="product">
+          <img alt="product" src="{{ data[item]['photos']['main'] }}">
+          <div>
+            <h2>{{ data[item]['name'] }}</h2>
+            <p class="price">{{ data[item]['prices']['rub'] }} ₽</p>
+            <p class="descr">CPU: {{ data[item]['characteristics']['cpu'] }} <br>
+                RAM: {{ data[item]['characteristics']['ram'] }}<br>
+                SCR: {{ data[item]['characteristics']['screen'] }}<br>
+                BTR: {{ data[item]['characteristics']['battery'] }}
+            </p>
+            <br>
+            <a href="item/{{ item }}/">
+              <p>SHOW</p>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+    </section>
+  </div>
+</body>
+
+</html>
